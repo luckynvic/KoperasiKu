@@ -1,0 +1,19 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  web:
+    build: . 
+    ports:
+      - "8294:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/public
+  db:
+    image: mariadb
+    ports:
+      - "3294:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: kopkar
+      MARIADB_USER: kopkar
+      MARIADB_PASSWORD: kopkar
