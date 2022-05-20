@@ -24,6 +24,7 @@ class Pinjaman extends Migration
         $table->float('jml_cicilan');
         $table->dateTime('created_at');
         $table->primary('id_pinjaman');
+        $table->string('status', 30);
         $table->foreign('id_anggota')
               ->references('id_anggota')->on('anggota')
               ->onDelete('cascade');
